@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/estilo.css">
+    <title>Controle de Estoque</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    
+     <style>
+      body {
+        background: #DDD;
+        margin: 0;
+      }
+    </style>
+    
+     <body>
+    <header>
+        <h1>TechPrime G.F</h1>
+        <nav>
+            <nav>
+            <ul>
+              <li><a href="inicio.html">Início</a></li>
+                <li><a href="caixa.html">Caixa</a></li>
+                <li><a href="cadastro de clientes.html">Cadastro de Clientes</a></li>
+                <li><a href="controle de estoque.html">Controle de Estoque</a></li>
+                 <li><a href="cadastro de funcionarios.html">Quadro de funcionarios</a></li>
+                 <li><a href="agenda finaceira.html">Agenda financeira</a></li>
+            </ul>
+        </nav>
+        </nav>
+    </header>
+   
+</body>
+    
+</head>
+  
+<style>
+    /* Estilos CSS */
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .form-group {
+      margin-bottom: 10px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .form-group input[type="text"] {
+      width: 100%;
+      padding: 5px;
+      font-size: 16px;
+    }
+    .form-group button {
+      padding: 5px 10px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    .search-results {
+      margin-top: 20px;
+    }
+  </style>
+<body>
+  <div class="container">
+    <h1></h1>
+    <div class="form-group">
+      <label for="search">Digite o nome do Produto:</label>
+      <input type="text" id="search" placeholder="Digite o nome do Produto">
+    </div>
+    <div class="form-group">
+      <button onclick="searchCustomer()">Buscar</button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+  <script>
+   
+   
+    function searchCustomer() {
+      const searchInput = document.getElementById("search");
+      const searchResults = document.getElementById("searchResults");
+
+      // Limpa os resultados anteriores
+      searchResults.innerHTML = "";
+
+      // Obtém o valor digitado no campo de busca
+      const searchTerm = searchInput.value.toLowerCase();
+
+      // Filtra os clientes cujo nome contenha o termo de busca
+      const filteredCustomers = customers.filter(customer =>
+        customer.name.toLowerCase().includes(searchTerm)
+      );
+
+      // Exibe os resultados da busca
+      if (filteredCustomers.length > 0) {
+        filteredCustomers.forEach(customer => {
+          const resultItem = document.createElement("div");
+          resultItem.textContent = `${customer.name} - ${customer.email}`;
+          searchResults.appendChild(resultItem);
+        });
+      } else {
+        const noResultsMessage = document.createElement("div");
+        noResultsMessage.textContent = "Nenhum cliente encontrado.";
+        searchResults.appendChild(noResultsMessage);
+      }
+    }
+  </script>
+</body>  
+    
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Controle de Estoque</title>
+  <style>
+    /* Estilos CSS */
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    table th, table td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    .form-group {
+      margin-bottom: 10px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: bold;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 5px;
+      font-size: 16px;
+    }
+    .form-group button {
+      padding: 5px 10px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Controle de Estoque</h1>
+    <div class="form-group">
+      <label for="produto">Produto:</label>
+      <input type="text" id="produto" placeholder="Digite o nome do produto">
+    </div>
+    <div class="form-group">
+      <label for="quantidade">Quantidade:</label>
+      <input type="number" id="quantidade" placeholder="Digite a quantidade do produto">
+    </div>
+    <div class="form-group">
+      <button onclick="adicionarProduto()">Adicionar Produto</button>
+    </div>
+    <table id="tabelaProdutos">
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Quantidade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Produtos adicionados serão inseridos dinamicamente aqui -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    let produtos = [];
+    const tabelaProdutos = document.getElementById("tabelaProdutos");
+
+    function adicionarProduto() {
+      const produtoInput = document.getElementById("produto");
+      const quantidadeInput = document.getElementById("quantidade");
+
+      const produto = produtoInput.value;
+      const quantidade = parseInt(quantidadeInput.value);
+
+      if (produto && quantidade) {
+        produtos.push({ produto, quantidade });
+
+        // Adiciona uma nova linha na tabela
+        const newRow = tabelaProdutos.insertRow();
+        const produtoCell = newRow.insertCell();
+        const quantidadeCell = newRow.insertCell();
+
+        produtoCell.textContent = produto;
+        quantidadeCell.textContent = quantidade;
+
+        // Limpa os campos do formulário
+        produtoInput.value = "";
+        quantidadeInput.value = "";
+      }
+    }
+  </script>
+</body>
+</html>

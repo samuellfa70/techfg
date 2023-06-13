@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/estilo.css">
+    <title>Cadastro de Clientes</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    
+     <style>
+      body {
+        background: #DDD;
+        margin: 0;
+      }
+    </style>
+    
+    <body>
+    <header>
+        <h1>TechPrime G.F</h1>
+        <nav>
+            <nav>
+            <ul>
+               <li><a href="inicio.html">Início</a></li>
+                <li><a href="caixa.html">Caixa</a></li>
+                <li><a href="cadastro de clientes.html">Cadastro de Clientes</a></li>
+                <li><a href="controle de estoque.html">Controle de Estoque</a></li>
+                 <li><a href="cadastro de funcionarios.html">Quadro de funcionarios</a></li>
+                 <li><a href="agenda finaceira.html">Agenda financeira</a></li>
+            </ul>
+        </nav>
+        </nav>
+    </header>
+<body>
+    
+<style>
+    /* Estilos CSS */
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .form-group {
+      margin-bottom: 10px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .form-group input[type="text"] {
+      width: 100%;
+      padding: 5px;
+      font-size: 16px;
+    }
+    .form-group button {
+      padding: 5px 10px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    .search-results {
+      margin-top: 20px;
+    }
+  </style>
+<body>
+  <div class="container">
+    <h1></h1>
+    <div class="form-group">
+      <label for="search">Digite o nome do Cliente:</label>
+      <input type="text" id="search" placeholder="Digite o nome do Cliente">
+    </div>
+    <div class="form-group">
+      <button onclick="searchCustomer()">Buscar</button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+  <script>
+   
+   
+    function searchCustomer() {
+      const searchInput = document.getElementById("search");
+      const searchResults = document.getElementById("searchResults");
+
+      // Limpa os resultados anteriores
+      searchResults.innerHTML = "";
+
+      // Obtém o valor digitado no campo de busca
+      const searchTerm = searchInput.value.toLowerCase();
+
+      // Filtra os clientes cujo nome contenha o termo de busca
+      const filteredCustomers = customers.filter(customer =>
+        customer.name.toLowerCase().includes(searchTerm)
+      );
+
+      // Exibe os resultados da busca
+      if (filteredCustomers.length > 0) {
+        filteredCustomers.forEach(customer => {
+          const resultItem = document.createElement("div");
+          resultItem.textContent = `${customer.name} - ${customer.email}`;
+          searchResults.appendChild(resultItem);
+        });
+      } else {
+        const noResultsMessage = document.createElement("div");
+        noResultsMessage.textContent = "Nenhum cliente encontrado.";
+        searchResults.appendChild(noResultsMessage);
+      }
+    }
+  </script>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro de Cliente</title>
+  <style>
+    /* Estilos CSS */
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .form-group {
+      margin-bottom: 10px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: bold;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 5px;
+      font-size: 16px;
+    }
+    .form-group button {
+      padding: 5px 10px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    .success-message {
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Cadastro de Cliente</h1>
+    <div id="form-message" class="success-message"></div>
+    <div class="form-group">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" placeholder="Digite o nome">
+    </div>
+    <div class="form-group">
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" placeholder="Digite o e-mail">
+    </div>
+    <div class="form-group">
+      <label for="telefone">Telefone:</label>
+      <input type="tel" id="telefone" placeholder="Digite o telefone">
+    </div>
+    <div class="form-group">
+      <button onclick="cadastrarCliente()">Cadastrar</button>
+    </div>
+  </div>
+
+  <script>
+    function cadastrarCliente() {
+      const nomeInput = document.getElementById("nome");
+      const emailInput = document.getElementById("email");
+      const telefoneInput = document.getElementById("telefone");
+      const formMessage = document.getElementById("form-message");
+
+      const nome = nomeInput.value;
+      const email = emailInput.value;
+      const telefone = telefoneInput.value;
+
+      // Aqui você pode adicionar a lógica para enviar os dados do cliente para o servidor
+      // por meio de uma requisição HTTP (usando AJAX, Fetch, etc.) ou realizar qualquer
+      // outra ação que você desejar.
+
+      // Neste exemplo, apenas exibimos uma mensagem de sucesso.
+      formMessage.textContent = "Cliente cadastrado com sucesso!";
+      
+      // Limpa os campos do formulário após o cadastro
+      nomeInput.value = "";
+      emailInput.value = "";
+      telefoneInput.value = "";
+    }
+  </script>
+</body>
+</html>
